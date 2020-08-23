@@ -9,14 +9,6 @@ sudo apt-get update
 #  age: 30,
 #  website: "beginnersbook.com"
 #})'
-IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
-export SERVER_HOST=$IP
-
-echo $SERVER_HOST
-echo $SERVER_HOST
-echo $SERVER_HOST
-echo $SERVER_HOST
-
 
 wget https://raw.githubusercontent.com/RunsetTech/wireguard-install/master/wireguard-install.sh -O wireguard-install.sh
 yes | sudo bash wireguard-install.sh
