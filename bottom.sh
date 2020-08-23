@@ -224,7 +224,27 @@ fi
 
 
 
-# git clone https://github.com/EchoEkhi/lead-knight
-# cd lead-knight
-# npm install
-# sudo node .
+git clone https://github.com/RunsetTech/wirapi.git
+
+cd wirapi
+npm install
+cat > .env <<EOF
+# API server settings
+PORT=8081
+DB_CONNECTION_STRING="mongodb://127.0.0.1:27017/leadknight2"
+ENABLE_GRAPHIQL=true
+WHITELISTED_IPS=''
+
+# communications to the main controller site
+MAIN_SITE_DOMAIN="localhost"
+MAIN_SITE_ROUTE="/lead-knight"
+MAIN_SITE_PORT=8080
+MAIN_SITE_USE_HTTPS=false
+
+# WireGuard settings
+CHECK_STATUS_INTERVAL=5000
+LOCAL_IP_RANGE='10.9.'
+# 10.9.0.0/16, only supports 16 bits
+EOF
+
+sudo node .
