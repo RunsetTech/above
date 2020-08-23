@@ -1,14 +1,14 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-#sudo apt install -y nodejs
-#sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install npm
-#sudo apt install -y mongodb
-#mongo --eval 'db.leadknigh2t.insert({
-#  name: "Chaitanya",
-#  age: 30,
-#  website: "beginnersbook.com"
-#})'
+sudo apt install -y nodejs
+sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install npm
+sudo apt install -y mongodb
+mongo --eval 'db.leadknigh2t.insert({
+  name: "Chaitanya",
+  age: 30,
+  website: "beginnersbook.com"
+})'
 
 #wget https://raw.githubusercontent.com/RunsetTech/wireguard-install/master/wireguard-install.sh -O wireguard-install.sh
 #yes | sudo bash wireguard-install.sh
