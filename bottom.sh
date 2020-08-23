@@ -62,44 +62,50 @@ if [ ! -f "$WG_CONFIG" ]; then
     PRIVATE_SUBNET_MASK=$( echo $PRIVATE_SUBNET | cut -d "/" -f 2 )
     GATEWAY_ADDRESS="${PRIVATE_SUBNET::-4}1"
 
-    if [ "$SERVER_HOST" == "" ]; then
-        SERVER_HOST=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-        if [ "$INTERACTIVE" == "yes" ]; then
-            read -p "Servers public IP address is $SERVER_HOST. Is that correct? [y/n]: " -e -i "y" CONFIRM
-            if [ "$CONFIRM" == "n" ]; then
-                echo "Aborted. Use environment variable SERVER_HOST to set the correct public IP address"
-                exit
-            fi
-        fi
-    fi
+#    if [ "$SERVER_HOST" == "" ]; then
+#        SERVER_HOST=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
+#        if [ "$INTERACTIVE" == "yes" ]; then
+#            read -p "Servers public IP address is $SERVER_HOST. Is that correct? [y/n]: " -e -i "y" CONFIRM
+#            if [ "$CONFIRM" == "n" ]; then
+#                echo "Aborted. Use environment variable SERVER_HOST to set the correct public IP address"
+#                exit
+#            fi
+#        fi
+#    fi
+
+SERVER_HOST=$SERVER_HOST
+    
 
     if [ "$SERVER_PORT" == "" ]; then
         SERVER_PORT=$( get_free_udp_port )
     fi
 
-    if [ "$CLIENT_DNS" == "" ]; then
-        echo "Which DNS do you want to use with the VPN?"
-        echo "   1) Cloudflare"
-        echo "   2) Google"
-        echo "   3) OpenDNS"
-        read -p "DNS [1-3]: " -e -i 1 DNS_CHOICE
+#    if [ "$CLIENT_DNS" == "" ]; then
+#        echo "Which DNS do you want to use with the VPN?"
+#        echo "   1) Cloudflare"
+#        echo "   2) Google"
+#        echo "   3) OpenDNS"
+#        read -p "DNS [1-3]: " -e -i 1 DNS_CHOICE
+#
+#        case $DNS_CHOICE in
+#            1)
+#            CLIENT_DNS="1.1.1.1,1.0.0.1"
+#            ;;
+#            2)
+#            CLIENT_DNS="8.8.8.8,8.8.4.4"
+#            ;;
+#            3)
+#            CLIENT_DNS="208.67.222.222,208.67.220.220"
+#            ;;
+#        esac
+#    fi
 
-        case $DNS_CHOICE in
-            1)
-            CLIENT_DNS="1.1.1.1,1.0.0.1"
-            ;;
-            2)
-            CLIENT_DNS="8.8.8.8,8.8.4.4"
-            ;;
-            3)
-            CLIENT_DNS="208.67.222.222,208.67.220.220"
-            ;;
-        esac
-    fi
+CLIENT_DNS="1.1.1.1"
 
-    if [ "$CLIENT_NAME" == "" ]; then
-        read -p "Tell me a name for the client config file. Use one word only, no special characters: " -e -i "client" CLIENT_NAME
-    fi
+#    if [ "$CLIENT_NAME" == "" ]; then
+#        read -p "Tell me a name for the client config file. Use one word only, no special characters: " -e -i "client" CLIENT_NAME
+#    fi
+CLIENT_NAME=$SERVER_HOST
 
     if [ "$DISTRO" == "Ubuntu" ]; then
 	apt-get install software-properties-common -y
