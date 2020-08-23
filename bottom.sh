@@ -14,7 +14,7 @@ db.leadknigh2t.insert({
 exit
 IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 export SERVER_HOST=$IP
-wget https://raw.githubusercontent.com/l-n-s/wireguard-install/master/wireguard-install.sh -O wireguard-install.sh
+wget https://raw.githubusercontent.com/RunsetTech/wireguard-install/master/wireguard-install.sh -O wireguard-install.sh
 bash wireguard-install.sh
 git clone https://github.com/EchoEkhi/lead-knight
 cd lead-knight
