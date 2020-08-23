@@ -141,21 +141,21 @@ ListenPort = $SERVER_PORT
 PrivateKey = $SERVER_PRIVKEY
 SaveConfig = false" > $WG_CONFIG
 
-    echo "# $CLIENT_NAME
-[Peer]
-PublicKey = $CLIENT_PUBKEY
-AllowedIPs = $CLIENT_ADDRESS/32" >> $WG_CONFIG
+#    echo "# $CLIENT_NAME
+#[Peer]
+#PublicKey = $CLIENT_PUBKEY
+#AllowedIPs = $CLIENT_ADDRESS/32" >> $WG_CONFIG
 
-    echo "[Interface]
-PrivateKey = $CLIENT_PRIVKEY
-Address = $CLIENT_ADDRESS/$PRIVATE_SUBNET_MASK
-DNS = $CLIENT_DNS
-[Peer]
-PublicKey = $SERVER_PUBKEY
-AllowedIPs = 0.0.0.0/0, ::/0
-Endpoint = $SERVER_HOST:$SERVER_PORT
-PersistentKeepalive = 25" > $HOME/$CLIENT_NAME-wg0.conf
-qrencode -t ansiutf8 -l L < $HOME/$CLIENT_NAME-wg0.conf
+#    echo "[Interface]
+#PrivateKey = $CLIENT_PRIVKEY
+#Address = $CLIENT_ADDRESS/$PRIVATE_SUBNET_MASK
+#DNS = $CLIENT_DNS
+#[Peer]
+#PublicKey = $SERVER_PUBKEY
+#AllowedIPs = 0.0.0.0/0, ::/0
+#Endpoint = $SERVER_HOST:$SERVER_PORT
+#PersistentKeepalive = 25" > $HOME/$CLIENT_NAME-wg0.conf
+#qrencode -t ansiutf8 -l L < $HOME/$CLIENT_NAME-wg0.conf
 
     echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
     echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
