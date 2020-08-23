@@ -4,14 +4,14 @@ sudo apt-get update
 sudo apt install -y nodejs
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install npm
 sudo apt install -y mongodb
-mongo
-use leadknight2
-db.leadknigh2t.insert({
+mongo --eval 'use leadknight2'
+mongo --eval 'db.leadknigh2t.insert({
   name: "Chaitanya",
   age: 30,
   website: "beginnersbook.com"
-})
-exit
+})'
+
+
 IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 export SERVER_HOST=$IP
 wget https://raw.githubusercontent.com/RunsetTech/wireguard-install/master/wireguard-install.sh -O wireguard-install.sh
