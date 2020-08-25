@@ -229,7 +229,8 @@ git clone https://github.com/RunsetTech/wirapi.git
 cd wirapi
 cat > .env <<EOF
 # API server settings
-PORT=8081
+#PORT=8081
+PORT=80
 DB_CONNECTION_STRING="mongodb://127.0.0.1:27017/leadknight2"
 ENABLE_GRAPHIQL=true
 WHITELISTED_IPS=''
