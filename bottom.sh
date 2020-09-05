@@ -79,7 +79,7 @@ SERVER_HOST=$SERVER_HOST
 #    if [ "$SERVER_PORT" == "" ]; then
 #        SERVER_PORT=$( get_free_udp_port )
 #    fi
-SERVER_PORT=123
+SERVER_PORT=3500
 
 #    if [ "$CLIENT_DNS" == "" ]; then
 #        echo "Which DNS do you want to use with the VPN?"
