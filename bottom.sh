@@ -232,7 +232,7 @@ cat > .env <<EOF
 #PORT=8081
 PORT=80
 DB_CONNECTION_STRING="mongodb://127.0.0.1:27017/leadknight2"
-ENABLE_GRAPHIQL=true
+ENABLE_GRAPHIQL=false
 WHITELISTED_IPS=''
 
 # communications to the main controller site
