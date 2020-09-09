@@ -1,9 +1,9 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt install -y nodejs
+sudo apt-get install -y nodejs
 sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install npm
-sudo apt install -y mongodb
+sudo apt-get install -y mongodb
 mongo --eval 'db.leadknigh2t.insert({
   name: "Chaitanya",
   age: 30,
@@ -111,7 +111,7 @@ CLIENT_NAME=$SERVER_HOST
     if [ "$DISTRO" == "Ubuntu" ]; then
 	apt-get install software-properties-common -y
 	add-apt-repository ppa:wireguard/wireguard -y
-	apt update
+	apt-get update
 	sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install linux-headers-$(uname -r) wireguard qrencode iptables-persistent -y
     elif [ "$DISTRO" == "Debian" ]; then
         echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d/unstable.list
